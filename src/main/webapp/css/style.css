@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+/* firstヘッダー画像サイズ調整 */
+.first-header {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.first-header-image {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 120px; 
+    object-fit: contain; 
+    display: inline-block;
+}
+
+/* secondヘッダー調整 */
+.second-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+.second-header .header-button {
+  height: 60px;
+  min-width: 100px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.second-header .second-header-image {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  margin-top: 15px;
+}
+
+/* 全体の設定 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    text-align: center; 
+    background-color: #ffffe0;
+}
+
+.button {
+  background-color: transparent;      /* 背景は透明 */
+  border: 2px solid #34495E;          /* 角丸の青枠 */
+  color: #34495E;                     /* 文字色も青 */
+  border-radius: 12px;                /* 角丸の度合い */
+  padding: 10px 24px;                 /* ボタンの内側余白 */
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 15px;
+}
+
+.button:hover {
+  background-color: #34495E;          /* ホバー時は青背景 */
+  color: white;                      /* 文字は白に */
+}
+
+label {
+  color: #001f3f; /* ラベルの文字色を青に */
+}
+
+/* 過去の日記 */
+.diary-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  gap: 20px;            /* 吹き出し同士の間隔 */
+  padding: 20px;
+}
+.post-meta {
+    display: flex;
+    gap: 20px; /* 要素間の隙間 */
+    align-items: center; /* 垂直方向に中央揃え */
+}
+
+.post-meta p {
+    margin: 0;
+}
+
+.diary-card {
+  background-color: #87CEEB; 
+  border-radius: 16px;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  position: relative;
+  font-family: 'Arial', sans-serif;
+  text-align: left;
+}
+
+.edit-button{
+  background: none;
+  color: #34495E;
+  border: none;
+  cursor: pointer;
+}
+
+/* 吹き出しの三角形 */
+.diary-card::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;  /* 下に三角形 */
+  left: 30px;
+  border-width: 15px 15px 0 0;
+  border-style: solid;
+  border-color: #87CEEB transparent transparent transparent;
+}
+
+/* 各情報のスタイル */
+.diary-card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.diary-card p {
+  margin: 6px 0;
+  color: #34495e;
+}
+
+.public-status {
+  font-weight: bold;
+  color: #2980b9;
+}
+
+.date {
+  font-size: 0.9em;
+  color: #7f8c8d;
+}
+
+.likes {
+  font-size: 1.1em;
+  color: #e74c3c;
+}
+
+.edit-form {
+  margin-top: 10px;
+}
+
+/* 他ユーザーの日記カードの色 */
+.diary-card.other-user {
+  background-color: #FADADD !important; /* 薄ピンク */
+}
+
+.like-button {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+nav ul {
+  list-style: none;       /* ● を消す */
+  padding: 0;
+  margin: 0 auto;         /* 真ん中に寄せる */
+  display: flex;
+  flex-direction: column; /* 縦並び */
+  align-items: center;    /* 中央寄せ */
+  gap: 10px;              /* 各項目の間隔 */
+}
+
+/* 他ユーザーの日記閲覧 */
+.diary-card.other-user {
+  background-color:#FADADD;
+}
+
+.diary-card.other-user::after {
+  border-color:#FADADD transparent transparent transparent;
+}
+
+/* フォーム関連 */
+.form-container {
+  width: 90%;               /* 画面幅に合わせる */
+  max-width: 400px;
+  margin: 0 auto;           /* 中央寄せ */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* ボタンの幅を指定 */
+.form-container .button {
+  width: fit-content;
+  align-self: center; /* 中央寄せ */
+  margin-top: 10px;
+}
+
+h1,h2,h3,p {
+  color: #001f3f;
+}
+
