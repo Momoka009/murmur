@@ -11,8 +11,6 @@ public class MyDiaryViewLogic {
 	    PostDAO dao = new PostDAO();
 	    List<PostBean> posts = dao.findPostsByUserId(userId);
 
-	    System.out.println("DAO returned posts size: " + (posts == null ? "null" : posts.size()));  // ここも確認
-
 	    return posts;
 	}
 }

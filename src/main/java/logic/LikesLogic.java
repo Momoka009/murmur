@@ -11,9 +11,10 @@ public class LikesLogic {
 
     private LikesDAO likesDAO = new LikesDAO();
 
+    //すでにいいね済みか確認
     public boolean likePost(String userId, int postId) {
         if (likesDAO.exists(userId, postId)) {
-            return false; // すでにいいね済み
+            return false; 
         }
         return likesDAO.insertLike(userId, postId);
     }

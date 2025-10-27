@@ -19,6 +19,6 @@ public class ThemesDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return "日記";  // デフォルトテーマ
+        return "日記"; 
     }
 }

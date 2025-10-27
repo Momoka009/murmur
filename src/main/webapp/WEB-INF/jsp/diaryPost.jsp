@@ -4,14 +4,10 @@
 <%@ page import="java.time.format.DateTimeFormatter" %>
 
 <%
-    // 当日の日付取得
     LocalDate today = LocalDate.now();
     String formattedDate = today.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
     String randomTheme = (String) request.getAttribute("randomTheme");
-    if (randomTheme == null) {
-        randomTheme = "今日の天気について";  // デフォルトの仮お題
-    }
 
     String savedTitle = (String) request.getAttribute("savedTitle");
     String savedText = (String) request.getAttribute("savedText");

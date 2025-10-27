@@ -18,8 +18,9 @@ public class PostDAO {
         String sql = "SELECT p.post_id, p.title, p.text, p.is_public, p.created_at, "
                    + "u.user_id, u.nickname, "
                    + "(SELECT COUNT(*) FROM likes l WHERE l.post_id = p.post_id) AS likeCount "
+//                   likesテーブルから、その投稿に押された「いいね数」を数えて、likeCountとして取得
                    + "FROM posts p "
-                   + "JOIN users u ON p.user_id = u.user_id "
+                   + "JOIN users u ON p.user_id = u.user_id " //投稿（posts）とユーザー（users）を結合
                    + "WHERE p.user_id = ? "
                    + "ORDER BY p.created_at DESC";
 

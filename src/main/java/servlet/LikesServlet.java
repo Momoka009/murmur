@@ -42,3 +42,4 @@ public class LikesServlet extends HttpServlet {
         response.sendRedirect("SomeonesDiaryViewServlet");
     }
 }
+

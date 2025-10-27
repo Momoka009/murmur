@@ -15,7 +15,6 @@ public class LoginLogic {
         return false; // 認証失敗
     }
 
-    // 必要なら、認証成功時にユーザ情報を返す別メソッドを作るのもあり
     public UsersBean getUser(String userId) {
         UsersDAO dao = new UsersDAO();
         return dao.findByUserId(userId);

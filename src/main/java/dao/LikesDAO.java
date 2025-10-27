@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 public class LikesDAO {
 
+	//ユーザーが既にその投稿にいいねしているか？
     public boolean exists(String userId, int postId) {
         String sql = "SELECT COUNT(*) FROM likes WHERE user_id = ? AND post_id = ?";
         try (Connection conn = DBManager.getConnection();
@@ -24,6 +25,7 @@ public class LikesDAO {
         return false;
     }
 
+//  新しく「いいね」を登録する処理
     public boolean insertLike(String userId, int postId) {
         String sql = "INSERT INTO likes (user_id, post_id) VALUES (?, ?)";
         try (Connection conn = DBManager.getConnection();
@@ -38,6 +40,7 @@ public class LikesDAO {
         return false;
     }
 
+//    登録されてる「いいね」を削除する処理
     public boolean deleteLike(String userId, int postId) {
         String sql = "DELETE FROM likes WHERE user_id = ? AND post_id = ?";
         try (Connection conn = DBManager.getConnection();
