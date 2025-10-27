@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,28 +12,26 @@
 <h1>Is everything OK?</h1>
 
 <%
-    String nickname = request.getParameter("nickname");
-    String userId = request.getParameter("userId");
-    String password = request.getParameter("password");
+    model.UsersBean user = (model.UsersBean) request.getAttribute("user");
 %>
 
 <form action="NewAduserServlet" method="post">
     <!-- 表示 -->
-    <p>ニックネーム: <strong><%= nickname %></strong></p>
-    <p>ユーザーID: <strong><%= userId %></strong></p>
+    <p>ニックネーム: <strong><%= user.getNickname() %></strong></p>
+    <p>ユーザーID: <strong><%= user.getUserId() %></strong></p>
     <p>パスワード: <strong>********</strong></p>
 
     <!-- 隠しフィールド -->
-    <input type="hidden" name="nickname" value="<%= nickname %>">
-    <input type="hidden" name="userId" value="<%= userId %>">
-    <input type="hidden" name="password" value="<%= password %>">
+    <input type="hidden" name="nickname" value="<%= user.getNickname() %>">
+    <input type="hidden" name="userId" value="<%= user.getUserId() %>">
+    <input type="hidden" name="password" value="<%= user.getPassword() %>">
 
-    <!-- OKボタンの名前を action にして値 confirm を渡す -->
     <button type="submit" name="action" value="confirm" class="button">OK</button>
 </form>
 
-
-<a href="NewAduserServlet"><button type="button" class="button">Cancel</button></a>
+<form action="NewAduserServlet" method="get">
+    <button type="submit" class="button">Cancel</button>
+</form>
 
 </body>
 </html>

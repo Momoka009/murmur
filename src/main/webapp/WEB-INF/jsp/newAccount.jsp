@@ -12,7 +12,7 @@
 <h1>NewAccount</h1>
 
 <% String errorMsg = (String) request.getAttribute("errorMsg"); %>
-<% model.UsersBean user = (model.UsersBean) request.getAttribute("userId"); %>
+<% model.UsersBean user = (model.UsersBean) request.getAttribute("user"); %>
 
 <% if (errorMsg != null) { %>
     <p style="color:red;"><%= errorMsg %></p>
@@ -23,6 +23,7 @@
   <div class="form-group">
     <label>NickName</label>
     <input type="text" name="nickname" value="<%= user != null ? user.getNickname() : "" %>" required>
+<!--    この場合のvalue値はエラーが出て再表示する際に入力していた値を保持するため-->
   </div>
 
   <div class="form-group">

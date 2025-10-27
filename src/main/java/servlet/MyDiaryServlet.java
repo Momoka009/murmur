@@ -23,17 +23,12 @@ public class MyDiaryServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UsersBean user = (UsersBean) session.getAttribute("loginUser");
         
-        if (user == null) {
-            response.sendRedirect(request.getContextPath() + "/LoginServlet");
-            return;
-        }
         
         String userId = user.getUserId();
 
         MyDiaryViewLogic logic = new MyDiaryViewLogic();
         List<PostBean> posts = logic.getUserPosts(userId);
 
-        System.out.println("posts size: " + (posts == null ? "null" : posts.size()));  // ← ここで出力確認
 
         request.setAttribute("posts", posts);
 
